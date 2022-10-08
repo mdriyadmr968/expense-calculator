@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ExpenseForm from "./ExpenseForm";
-import './NewExpense.css';
+import "./NewExpense.css";
 
 const NewExpense = (props) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -19,7 +19,7 @@ const NewExpense = (props) => {
     };
 
     props.onAddExpense(expenseData);
-    setIsEditing(false);    
+    setIsEditing(false);
   };
 
   return (

@@ -1,12 +1,25 @@
-import React from 'react';
-import './ExpensesList.css';
+import React from "react";
+import ExpenseItem from "./ExpenseItem";
+import "./ExpensesList.css";
 
-const ExpensesList = () => {
-    return (
-        <div>
-            <h2>this is expense list</h2>
-        </div>
-    );
+const ExpensesList = (props) => {
+    if(props.items.length === 0) {
+        return <h2 className="expenses-list__fallback">Found no expenses.</h2>;
+    }
+  return (
+    <div>
+      <ul className="expense-list">
+        {props.items.map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          ></ExpenseItem>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default ExpensesList;
